@@ -36,6 +36,7 @@ zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::kubectl
 zinit snippet OMZP::command-not-found
+zinit snippet OMZP::pyenv
 zinit snippet OMZP::gcloud
 zinit snippet OMZP::archlinux
 
@@ -70,11 +71,25 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
-alias c='code'
 alias p='pnpm'
+alias watch='watch '
+alias k="kubectl"
+
+# VSCode
+function c() {
+  # Shortcut to `code`.
+  # If $1 is specified, use that, otherwise, use .
+  # Pass the rest of the arguments to code
+  if [[ $1 != "" ]]; then
+    command code "$1" "${@:1}"
+  else
+    command code "." "${@:1}"
+  fi
+}
 
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# Git commit signing
+export GPG_TTY=$TTY
