@@ -38,7 +38,7 @@ zinit snippet OMZP::kubectl
 zinit snippet OMZP::command-not-found
 zinit snippet OMZP::pyenv
 zinit snippet OMZP::gcloud
-zinit snippet OMZP::archlinux
+# zinit snippet OMZP::archlinux
 
 # Load completions
 autoload -Uz compinit && compinit
